@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 8% 97%;
+    --foreground: 210 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 15%;
+
+    --primary: 150 30% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 15% 92%;
+    --secondary-foreground: 210 10% 15%;
+
+    --muted: 150 10% 94%;
+    --muted-foreground: 210 8% 45%;
+
+    --accent: 150 25% 88%;
+    --accent-foreground: 210 10% 15%;
+
+    --destructive: 20 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 12% 88%;
+    --input: 150 12% 88%;
+    --ring: 150 30% 42%;
+
+    --radius: 0.75rem;
+
+    --sage: 150 30% 42%;
+    --sage-light: 150 25% 88%;
+    --sage-glow: 150 35% 55%;
+    --charcoal: 210 10% 15%;
+    --charcoal-light: 210 8% 25%;
+    --glass: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    --warm: 35 60% 95%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 210 10% 8%;
+    --foreground: 150 8% 95%;
+    --card: 210 10% 12%;
+    --card-foreground: 150 8% 95%;
+    --popover: 210 10% 12%;
+    --popover-foreground: 150 8% 95%;
+    --primary: 150 35% 55%;
+    --primary-foreground: 210 10% 8%;
+    --secondary: 210 8% 18%;
+    --secondary-foreground: 150 8% 95%;
+    --muted: 210 8% 18%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 210 8% 18%;
+    --accent-foreground: 150 8% 95%;
+    --destructive: 20 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 8% 20%;
+    --input: 210 8% 20%;
+    --ring: 150 35% 55%;
+    --sage: 150 35% 55%;
+    --charcoal: 210 10% 90%;
+    --glass: 210 10% 15%;
+    --glass-border: 210 10% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border;
+    background: hsl(var(--glass) / 0.6);
+    border-color: hsl(var(--glass-border) / 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px hsl(var(--charcoal) / 0.08);
+  }
+
+  .glass-card-strong {
+    @apply rounded-2xl border;
+    background: hsl(var(--glass) / 0.85);
+    border-color: hsl(var(--glass-border) / 0.4);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 12px 40px hsl(var(--charcoal) / 0.12);
+  }
+
+  .sage-gradient {
+    background: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--sage-glow)));
+  }
+
+  .charcoal-gradient {
+    background: linear-gradient(135deg, hsl(var(--charcoal)), hsl(var(--charcoal-light)));
+  }
+
+  .progress-fill {
+    @apply rounded-full transition-all duration-700 ease-out;
+    background: linear-gradient(90deg, hsl(var(--sage)), hsl(var(--sage-glow)));
+  }
+
+  .survey-option {
+    @apply glass-card px-6 py-4 cursor-pointer transition-all duration-300 select-none;
+  }
+  .survey-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px hsl(var(--sage) / 0.15);
+    border-color: hsl(var(--sage) / 0.4);
+  }
+  .survey-option.selected {
+    border-color: hsl(var(--sage));
+    background: hsl(var(--sage) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--sage) / 0.15);
+  }
+
+  .deficiency-bar {
+    @apply h-3 rounded-full overflow-hidden;
+    background: hsl(var(--muted));
+  }
+}
+
+@layer utilities {
+  .text-gradient-sage {
+    background: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--sage-glow)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
